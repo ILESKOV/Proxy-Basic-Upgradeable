@@ -17,9 +17,9 @@ contract ProxyDog is Storage{
         (bool res,bytes memory data) = currentAddress.delegatecall(abi.encodePacked(bytes4(keccak256("getNumberOfDogs()"))));
         return (res, data);
     }
-
-    function setNumberOfDogs(uint _number)public returns(bool, bytes memory){
-        (bool res,bytes memory data) = currentAddress.delegatecall(abi.encodePacked(bytes4(keccak256("setNumberOfDogs(uint)")),_number));
+        
+    function setNumberOfDogs(uint256 _number) public returns (bool, bytes memory){
+        (bool res, bytes memory data) = currentAddress.delegatecall(abi.encodePacked(bytes4(keccak256("setNumberOfDogs(uint256)")), _number));
         return (res, data);
     }
 }
